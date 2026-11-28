@@ -37,6 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'accounts',
+    'analytics',
+    'batches',
+    'rewards',
+    'campaigns',
+    'catalog',
+    'loyalty',
+    'qr_codes'
+    
 ]
 
 MIDDLEWARE = [
@@ -50,6 +60,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'bikaji_rewards_pro.urls'
+
+
 
 TEMPLATES = [
     {
@@ -99,6 +111,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTH_USER_MODEL = "accounts.User"
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
 
@@ -124,4 +139,12 @@ MAILERS = {
     'default': {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
+}
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+    ]
 }
